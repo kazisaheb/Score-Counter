@@ -11,12 +11,22 @@
       font-family: revert;
     }
 
-    h2 {
-      margin-bottom: 0;
+    .sec {
+      margin: 0 auto;
+      max-width: 350px;
+      background: rgb(200, 200, 200);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
     }
 
-    h3 {
-      margin-top: 0;
+    h2 {
+      border: 2px solid white;
+      padding: 0 10px;
+      border-radius: 25px;
+      background: skyblue;
     }
 
     .over button {
@@ -36,6 +46,7 @@
 
     #run {
       width: 50px;
+      font-size: 18px;
       padding: 2px;
     }
 
@@ -47,28 +58,41 @@
       display: none;
     }
 
+    h3 button {
+      cursor: pointer;
+      background: gray;
+      color: white;
+      border-radius: 25px;
+      padding: 10px 15px;
+      font-size: 20px;
+      border: none;
+    }
+
   </style>
 </head>
 
 <body>
-  <h2>Total Update:</h2>
-  <h3>Overs: <button id="Overs">0</button> Runs: <button id="Runs">0</button></h3>
-  <h2>This over:</h2>
-  <div class="s">
-    <div class="over">
-      <button id="one"></button>
-      <button id="two"></button>
-      <button id="three"></button>
-      <button id="four"></button>
-      <button id="five"></button>
-      <button id="six"></button>
-      <button id="overSum"></button>
-    </div>
-  </div>
-  <h3>This ball: <input id="run" type="number" placeholder="Run"> <button onclick="enter()" id="enter">Enter</button>
-    <button onclick="newOver()" id="newOver">New Over</button>
-  </h3>
+  <div class="sec">
 
+
+    <h2>Total Update:</h2>
+    <h3>Overs: <button id="Overs">0</button> Runs: <button id="Runs">0</button></h3>
+    <h2>This over:</h2>
+    <div class="s">
+      <div class="over">
+        <button id="one"></button>
+        <button id="two"></button>
+        <button id="three"></button>
+        <button id="four"></button>
+        <button id="five"></button>
+        <button id="six"></button>
+        <button id="overSum">0</button>
+      </div>
+    </div>
+    <h3>This ball: <input id="run" type="number" placeholder="run"> <button onclick="enter()" id="enter">Enter</button>
+      <button onclick="newOver()" id="newOver">New Over</button>
+    </h3>
+  </div>
   <script>
     let Overs = document.getElementById('Overs')
     let Runs = document.getElementById('Runs')
@@ -105,7 +129,6 @@
         six.innerText = run.value;
       }
       overSum.innerText = +one.innerText + +two.innerText + +three.innerText + +four.innerText + +five.innerText + +six.innerText
-      // Runs.innerText = +iniRuns + +overSum.innerText;
       run.value = '';
 
       if (six.innerText != '') {
@@ -124,7 +147,7 @@
       five.innerText = '';
       six.innerText = '';
 
-      overSum.innerText = '';
+      overSum.innerText = 0;
 
       enterBtn.style.display = 'inline-block'
       newOverBtn.style.display = 'none'
