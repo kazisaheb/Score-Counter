@@ -133,14 +133,14 @@
       }
       overSum.innerText = +one.innerText + +two.innerText + +three.innerText + +four.innerText + +five.innerText + +six.innerText
       run.value = '';
-
+      run.focus()
       if (six.innerText != '') {
         Overs.innerText = +Overs.innerText + 1;
         Runs.innerText = + Runs.innerText + +overSum.innerText;
         enterBtn.style.display = 'none'
         newOverBtn.style.display = 'inline-block'
+        run.disabled = true;
       }
-      run.focus()
     }
 
     newOver = () => {
@@ -155,6 +155,7 @@
 
       enterBtn.style.display = 'inline-block'
       newOverBtn.style.display = 'none'
+      run.disabled = false;
       run.focus()
     }
   </script>
