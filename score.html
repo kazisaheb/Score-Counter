@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Score Counter</title>
+  <style>
+    * {
+      font-family: revert;
+    }
+
+    h2 {
+      margin-bottom: 0;
+    }
+
+    h3 {
+      margin-top: 0;
+    }
+
+    .over button {
+      height: 30px;
+      width: 30px;
+      padding: 7px 0;
+    }
+
+    #overSum {
+      background: tomato;
+      color: white;
+    }
+
+    .s {
+      display: flex;
+    }
+
+    #run {
+      width: 50px;
+      padding: 2px;
+    }
+
+    h3 button {
+      cursor: pointer;
+    }
+
+    #newOver {
+      display: none;
+    }
+
+  </style>
+</head>
+
+<body>
+  <h2>Total Update:</h2>
+  <h3>Overs: <button id="Overs">0</button> Runs: <button id="Runs">0</button></h3>
+  <h2>This over:</h2>
+  <div class="s">
+    <div class="over">
+      <button id="one"></button>
+      <button id="two"></button>
+      <button id="three"></button>
+      <button id="four"></button>
+      <button id="five"></button>
+      <button id="six"></button>
+      <button id="overSum"></button>
+    </div>
+  </div>
+  <h3>This ball: <input id="run" type="number" placeholder="Run"> <button onclick="enter()" id="enter">Enter</button>
+    <button onclick="newOver()" id="newOver">New Over</button>
+  </h3>
+
+  <script>
+    let Overs = document.getElementById('Overs')
+    let Runs = document.getElementById('Runs')
+    let iniRuns = Runs.innerText
+
+    let one = document.getElementById('one')
+    let two = document.getElementById('two')
+    let three = document.getElementById('three')
+    let four = document.getElementById('four')
+    let five = document.getElementById('five')
+    let six = document.getElementById('six')
+
+    let run = document.getElementById('run')
+    let enter = document.getElementById('enter')
+    let overSum = document.getElementById('overSum')
+
+    let enterBtn = document.getElementById('enter')
+    let newOverBtn = document.getElementById('newOver')
+
+    enter = () => {
+      if (run.value < 0 || run.value == '' || six.innerText != '') {
+        return;
+      } else if (one.innerText == '') {
+        one.innerText = run.value;
+      } else if (two.innerText == '') {
+        two.innerText = run.value;
+      } else if (three.innerText == '') {
+        three.innerText = run.value;
+      } else if (four.innerText == '') {
+        four.innerText = run.value;
+      } else if (five.innerText == '') {
+        five.innerText = run.value;
+      } else if (six.innerText == '') {
+        six.innerText = run.value;
+      }
+      overSum.innerText = +one.innerText + +two.innerText + +three.innerText + +four.innerText + +five.innerText + +six.innerText
+      // Runs.innerText = +iniRuns + +overSum.innerText;
+      run.value = '';
+
+      if (six.innerText != '') {
+        Overs.innerText = +Overs.innerText + 1;
+        Runs.innerText = + Runs.innerText + +overSum.innerText;
+        enterBtn.style.display = 'none'
+        newOverBtn.style.display = 'inline-block'
+      }
+    }
+
+    newOver = () => {
+      one.innerText = '';
+      two.innerText = '';
+      three.innerText = '';
+      four.innerText = '';
+      five.innerText = '';
+      six.innerText = '';
+
+      overSum.innerText = '';
+
+      enterBtn.style.display = 'inline-block'
+      newOverBtn.style.display = 'none'
+    }
+  </script>
+</body>
+
+</html>
