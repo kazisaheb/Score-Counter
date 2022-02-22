@@ -46,7 +46,6 @@ enter = () => {
     run.disabled = true;
   }
   bowlerName.disabled = true;
-  bowlerName.style.color = 'white';
 }
 
 bowlerName.focus()
