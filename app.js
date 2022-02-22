@@ -44,17 +44,13 @@ enter = () => {
   }
 }
 
-
 newOver = () => {
   iniRuns = Runs.innerText;
 
   let ul = document.getElementById('ul')
   let li = document.createElement('li')
-  // let serial = 0;
   li.innerHTML = `Over ${Overs.innerText} = ${thisOver.innerHTML}`;
   ul.appendChild(li);
-
-  // lastShow.innerHTML = thisOver.innerHTML;
 
   one.innerText = '';
   two.innerText = '';
