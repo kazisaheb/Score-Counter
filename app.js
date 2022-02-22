@@ -70,8 +70,8 @@ newOver = () => {
   enterBtn.style.display = 'inline-block'
   newOverBtn.style.display = 'none'
   run.disabled = false;
-  bowlerName.focus()
   bowlerName.disabled = false;
+  bowlerName.focus()
 }
 overSum.style.backgroundColor = 'tomato';
 overSum.style.color = 'white';
