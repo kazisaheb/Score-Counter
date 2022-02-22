@@ -16,6 +16,9 @@ let overSum = document.getElementById('overSum')
 let enterBtn = document.getElementById('enter')
 let newOverBtn = document.getElementById('newOver')
 
+let bowlerName = document.getElementById('bowlerName')
+let ul = document.getElementById('ul')
+
 enter = () => {
   if (run.value < 0 || run.value == '' || six.innerText != '') {
     return;
@@ -42,13 +45,12 @@ enter = () => {
     newOverBtn.style.display = 'inline-block'
     run.disabled = true;
   }
+  bowlerName.disabled = true;
 }
 
 newOver = () => {
   iniRuns = Runs.innerText;
 
-  let bowlerName = document.getElementById('bowlerName')
-  let ul = document.getElementById('ul')
   let li = document.createElement('li')
   li.innerHTML = `${Overs.innerText}. ${bowlerName.value} = ${thisOver.innerHTML}`;
   ul.appendChild(li);
@@ -67,6 +69,7 @@ newOver = () => {
   newOverBtn.style.display = 'none'
   run.disabled = false;
   run.focus()
+  bowlerName.disabled = false;
 }
 overSum.style.backgroundColor = 'tomato';
 overSum.style.color = 'white';
