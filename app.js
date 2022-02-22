@@ -47,9 +47,10 @@ enter = () => {
 newOver = () => {
   iniRuns = Runs.innerText;
 
+  let bowlerName = document.getElementById('bowlerName')
   let ul = document.getElementById('ul')
   let li = document.createElement('li')
-  li.innerHTML = `Over ${Overs.innerText} = ${thisOver.innerHTML}`;
+  li.innerHTML = `${Overs.innerText}. ${bowlerName.value} = ${thisOver.innerHTML}`;
   ul.appendChild(li);
 
   one.innerText = '';
@@ -60,6 +61,7 @@ newOver = () => {
   six.innerText = '';
 
   overSum.innerText = 0;
+  bowlerName.value = '';
 
   enterBtn.style.display = 'inline-block'
   newOverBtn.style.display = 'none'

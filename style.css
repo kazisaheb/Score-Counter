@@ -50,6 +50,19 @@ h3 button {
   cursor: pointer;
 }
 
+.bowlerName{
+display: flex;
+font-size: 1.2em;
+max-width: 90%;
+}
+#bowlerName{
+  font-size: 20px;
+  padding: 0px 5px;
+  margin: 5px -5px;
+  border: none;
+  border-radius: 0px 20px 20px 0;
+}
+
 #enter {
   background-color: rgb(0, 147, 206);
 }
