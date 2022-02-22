@@ -46,7 +46,10 @@ enter = () => {
     run.disabled = true;
   }
   bowlerName.disabled = true;
+  bowlerName.style.color = 'white';
 }
+
+bowlerName.focus()
 
 newOver = () => {
   iniRuns = Runs.innerText;
@@ -68,7 +71,7 @@ newOver = () => {
   enterBtn.style.display = 'inline-block'
   newOverBtn.style.display = 'none'
   run.disabled = false;
-  run.focus()
+  bowlerName.focus()
   bowlerName.disabled = false;
 }
 overSum.style.backgroundColor = 'tomato';
