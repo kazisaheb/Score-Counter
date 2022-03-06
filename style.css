@@ -47,6 +47,8 @@ h2 {
 }
 
 h3 button {
+  height: 45px;
+  min-width: 50px;
   cursor: pointer;
 }
 

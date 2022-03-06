@@ -74,9 +74,25 @@ newOver = () => {
   bowlerName.focus()
 
   //Local storage
-  localStorage.setItem('overs', JSON.stringify(ul.innerHTML))
+  localStorage.setItem('allOvers', JSON.stringify(ul.innerHTML))
+  localStorage.setItem('Overs', JSON.stringify(Overs.innerText))
+  localStorage.setItem('Runs', JSON.stringify(Runs.innerText))
 }
-ul.innerHTML = JSON.parse(localStorage.getItem('overs'))
+ul.innerHTML = JSON.parse(localStorage.getItem('allOvers'))
+Overs.innerText = JSON.parse(localStorage.getItem('Overs'))
+Runs.innerText = JSON.parse(localStorage.getItem('Runs'))
 
 overSum.style.backgroundColor = 'tomato';
 overSum.style.color = 'white';
+
+clearAll = () => {
+  if (confirm("Confirm All Clear?")) {
+    localStorage.removeItem('allOvers')
+    localStorage.removeItem('Overs')
+    localStorage.removeItem('Runs')
+
+    ul.innerHTML = ''
+    Overs.innerText = 0
+    Runs.innerText = 0
+  }
+}
