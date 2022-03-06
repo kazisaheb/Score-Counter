@@ -96,6 +96,7 @@ clearAll = () => {
     ul.innerHTML = ''
     Overs.innerText = 0
     Runs.innerText = 0
+    location.reload()
   }
 }
 iniRuns = Runs.innerText
