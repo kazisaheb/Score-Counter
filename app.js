@@ -1,7 +1,3 @@
-let Overs = document.getElementById('Overs')
-let Runs = document.getElementById('Runs')
-let iniRuns = Runs.innerText
-
 let one = document.getElementById('one')
 let two = document.getElementById('two')
 let three = document.getElementById('three')
@@ -18,6 +14,10 @@ let newOverBtn = document.getElementById('newOver')
 
 let bowlerName = document.getElementById('bowlerName')
 let ul = document.getElementById('ul')
+
+let Overs = document.getElementById('Overs')
+let Runs = document.getElementById('Runs')
+let iniRuns = Runs.innerText
 
 enter = () => {
   if (run.value < 0 || run.value == '' || six.innerText != '') {
@@ -51,8 +51,6 @@ enter = () => {
 bowlerName.focus()
 
 newOver = () => {
-  iniRuns = Runs.innerText;
-
   let li = document.createElement('li')
   li.innerHTML = `${Overs.innerText}. ${bowlerName.value} = ${thisOver.innerHTML}`;
   ul.appendChild(li);
@@ -71,13 +69,17 @@ newOver = () => {
   newOverBtn.style.display = 'none'
   run.disabled = false;
   bowlerName.disabled = false;
-  bowlerName.focus()
 
   //Local storage
   localStorage.setItem('allOvers', JSON.stringify(ul.innerHTML))
   localStorage.setItem('Overs', JSON.stringify(Overs.innerText))
   localStorage.setItem('Runs', JSON.stringify(Runs.innerText))
+
+  iniRuns = Runs.innerText
+
+  bowlerName.focus()
 }
+
 ul.innerHTML = JSON.parse(localStorage.getItem('allOvers'))
 Overs.innerText = JSON.parse(localStorage.getItem('Overs'))
 Runs.innerText = JSON.parse(localStorage.getItem('Runs'))
@@ -96,3 +98,4 @@ clearAll = () => {
     Runs.innerText = 0
   }
 }
+iniRuns = Runs.innerText
