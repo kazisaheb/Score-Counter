@@ -72,6 +72,11 @@ newOver = () => {
   run.disabled = false;
   bowlerName.disabled = false;
   bowlerName.focus()
+
+  //Local storage
+  localStorage.setItem('overs', JSON.stringify(ul.innerHTML))
 }
+ul.innerHTML = JSON.parse(localStorage.getItem('overs'))
+
 overSum.style.backgroundColor = 'tomato';
 overSum.style.color = 'white';
